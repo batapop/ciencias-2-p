@@ -1,0 +1,22 @@
+ECHO est  activado.
+# Archivos de NetBeans
+nbproject/
+build/
+dist/
+nbdist/
+nbactions.xml
+nb-configuration.xml
+
+# Archivos compilados
+*.class
+*.jar
+*.war
+
+# IDE y sistema
+.idea/
+*.iml
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log

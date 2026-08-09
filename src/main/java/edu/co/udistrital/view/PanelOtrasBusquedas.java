@@ -8,6 +8,21 @@ package edu.co.udistrital.view;
  *
  * @author david
  */
-public class PanelOtrasBusquedas {
-    
+import javax.swing.*;
+import java.awt.*;
+
+public class PanelOtrasBusquedas extends JPanel implements Visualiza {
+
+    public PanelOtrasBusquedas() {
+        setLayout(new BorderLayout());
+        JLabel titulo = new JLabel("1.4 Otras búsquedas internas", SwingConstants.CENTER);
+        titulo.setFont(new Font("SansSerif", Font.BOLD, 20));
+        add(titulo, BorderLayout.NORTH);
+    }
+
+    @Override
+    public JPanel getPanel() { return this; }
+
+    @Override
+    public String getIdentificador() { return "otras_busquedas"; } // debe ser IGUAL al idPanel que usaste en ArbolTemasFactory
 }

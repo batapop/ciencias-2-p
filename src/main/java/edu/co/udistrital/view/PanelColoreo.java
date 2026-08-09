@@ -11,11 +11,11 @@ package edu.co.udistrital.view;
 import javax.swing.*;
 import java.awt.*;
 
-public class PanelIndicesArchivos extends JPanel implements Visualiza {
+public class PanelColoreo extends JPanel implements Visualiza {
 
-    public PanelIndicesArchivos() {
+    public PanelColoreo() {
         setLayout(new BorderLayout());
-        JLabel titulo = new JLabel("1.5 Índices para archivos", SwingConstants.CENTER);
+        JLabel titulo = new JLabel("2.9 Coloreo y particionamiento", SwingConstants.CENTER);
         titulo.setFont(new Font("SansSerif", Font.BOLD, 20));
         add(titulo, BorderLayout.NORTH);
     }
@@ -24,5 +24,5 @@ public class PanelIndicesArchivos extends JPanel implements Visualiza {
     public JPanel getPanel() { return this; }
 
     @Override
-    public String getIdentificador() { return "indices_archivos"; } // debe ser IGUAL al idPanel que usaste en ArbolTemasFactory
+    public String getIdentificador() { return "coloreo"; } // debe ser IGUAL al idPanel que usaste en ArbolTemasFactory
 }

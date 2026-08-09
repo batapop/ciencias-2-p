@@ -8,6 +8,21 @@ package edu.co.udistrital.view;
  *
  * @author david
  */
-public class PanelFundamentosGrafos {
-    
+import javax.swing.*;
+import java.awt.*;
+
+public class PanelFundamentosGrafos extends JPanel implements Visualiza {
+
+    public PanelFundamentosGrafos() {
+        setLayout(new BorderLayout());
+        JLabel titulo = new JLabel("2.1 Definiciones básicas", SwingConstants.CENTER);
+        titulo.setFont(new Font("SansSerif", Font.BOLD, 20));
+        add(titulo, BorderLayout.NORTH);
+    }
+
+    @Override
+    public JPanel getPanel() { return this; }
+
+    @Override
+    public String getIdentificador() { return "fundamentos_grafos"; } // debe ser IGUAL al idPanel que usaste en ArbolTemasFactory
 }

@@ -42,12 +42,26 @@ public class VentanaPrincipal extends JFrame {
         setVisible(true);
     }
 
-    private void registrarPaneles() {
-        agregar(new edu.co.udistrital.view.PanelBusquedaInterna());
-        // agregar(new PanelFuncionesHash());
-        // agregar(new PanelColisionesHash());
-        // ... uno por cada subtema, a medida que los vayas creando
-    }
+        private void registrarPaneles() {
+            agregar(new edu.co.udistrital.view.PanelBusquedaInterna());
+            agregar(new edu.co.udistrital.view.PanelFuncionesHash());
+            agregar(new edu.co.udistrital.view.PanelColisionesHash());
+            agregar(new edu.co.udistrital.view.PanelOtrasBusquedas());
+            agregar(new edu.co.udistrital.view.PanelIndicesArchivos());
+
+            agregar(new edu.co.udistrital.view.PanelFundamentosGrafos());
+            agregar(new edu.co.udistrital.view.PanelCircuitosEspeciales());
+            agregar(new edu.co.udistrital.view.PanelRepresentacionMemoria());
+            agregar(new edu.co.udistrital.view.PanelArboles());
+            agregar(new edu.co.udistrital.view.PanelArbolesExpansion());
+            agregar(new edu.co.udistrital.view.PanelConjuntosCorte());
+            agregar(new edu.co.udistrital.view.PanelMatricesGrafos());
+            agregar(new edu.co.udistrital.view.PanelEstructurasAdyacencia());
+            agregar(new edu.co.udistrital.view.PanelColoreo());
+            agregar(new edu.co.udistrital.view.PanelPareamientos());
+            agregar(new edu.co.udistrital.view.PanelEnvolventes());
+        }
+    
 
     private void agregar(Visualiza panel) {
         panelContenido.add(panel.getPanel(), panel.getIdentificador());

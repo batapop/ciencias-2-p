@@ -1,10 +1,9 @@
 edu\co\udistrital\view\PanelFundamentosGrafos.class
 edu\co\udistrital\view\PanelColisionesHash.class
-edu\co\udistrital\view\PanelBinaria.class
+edu\co\udistrital\view\PanelColoreo.class
 edu\co\udistrital\view\PanelCircuitosEspeciales.class
 edu\co\udistrital\view\PanelRepresentacionMemoria.class
 edu\co\udistrital\view\PanelBusquedaInterna.class
-edu\co\udistrital\view\PanelColoreoParticionamiento.class
 edu\co\udistrital\view\PanelOtrasBusquedas.class
 edu\co\udistrital\view\PanelEstructurasAdyacencia.class
 edu\co\udistrital\model\ArbolTemasFactory.class

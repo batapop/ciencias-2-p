@@ -8,7 +8,6 @@ package edu.co.udistrital.view;
  *
  * @author david
  */
-import edu.co.udistrital.view.Visualiza;
 import javax.swing.*;
 import java.awt.*;
 

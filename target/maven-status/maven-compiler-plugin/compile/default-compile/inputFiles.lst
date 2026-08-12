@@ -1,7 +1,17 @@
+C:\Users\david\Documents\NetBeansProjects\projectcc2\src\main\java\edu\co\udistrital\controller\AlgoritmoBusqueda.java
+C:\Users\david\Documents\NetBeansProjects\projectcc2\src\main\java\edu\co\udistrital\controller\BusquedaBinaria.java
+C:\Users\david\Documents\NetBeansProjects\projectcc2\src\main\java\edu\co\udistrital\controller\BusquedaController.java
+C:\Users\david\Documents\NetBeansProjects\projectcc2\src\main\java\edu\co\udistrital\controller\BusquedaSecuencial.java
+C:\Users\david\Documents\NetBeansProjects\projectcc2\src\main\java\edu\co\udistrital\controller\BusquedaTransformacionClaves.java
 C:\Users\david\Documents\NetBeansProjects\projectcc2\src\main\java\edu\co\udistrital\controller\Main.java
 C:\Users\david\Documents\NetBeansProjects\projectcc2\src\main\java\edu\co\udistrital\controller\NavegacionController.java
 C:\Users\david\Documents\NetBeansProjects\projectcc2\src\main\java\edu\co\udistrital\model\ArbolTemasFactory.java
+C:\Users\david\Documents\NetBeansProjects\projectcc2\src\main\java\edu\co\udistrital\model\ArregloBusqueda.java
+C:\Users\david\Documents\NetBeansProjects\projectcc2\src\main\java\edu\co\udistrital\model\Nodo.java
 C:\Users\david\Documents\NetBeansProjects\projectcc2\src\main\java\edu\co\udistrital\model\NodoTema.java
+C:\Users\david\Documents\NetBeansProjects\projectcc2\src\main\java\edu\co\udistrital\model\PasoBusqueda.java
+C:\Users\david\Documents\NetBeansProjects\projectcc2\src\main\java\edu\co\udistrital\model\ResultadoBusqueda.java
+C:\Users\david\Documents\NetBeansProjects\projectcc2\src\main\java\edu\co\udistrital\view\ComponenteArregloTabla.java
 C:\Users\david\Documents\NetBeansProjects\projectcc2\src\main\java\edu\co\udistrital\view\PanelArboles.java
 C:\Users\david\Documents\NetBeansProjects\projectcc2\src\main\java\edu\co\udistrital\view\PanelArbolesExpansion.java
 C:\Users\david\Documents\NetBeansProjects\projectcc2\src\main\java\edu\co\udistrital\view\PanelBusquedaInterna.java
@@ -18,5 +28,8 @@ C:\Users\david\Documents\NetBeansProjects\projectcc2\src\main\java\edu\co\udistr
 C:\Users\david\Documents\NetBeansProjects\projectcc2\src\main\java\edu\co\udistrital\view\PanelOtrasBusquedas.java
 C:\Users\david\Documents\NetBeansProjects\projectcc2\src\main\java\edu\co\udistrital\view\PanelPareamientos.java
 C:\Users\david\Documents\NetBeansProjects\projectcc2\src\main\java\edu\co\udistrital\view\PanelRepresentacionMemoria.java
+C:\Users\david\Documents\NetBeansProjects\projectcc2\src\main\java\edu\co\udistrital\view\SubPanelBinaria.java
+C:\Users\david\Documents\NetBeansProjects\projectcc2\src\main\java\edu\co\udistrital\view\SubPanelSecuencial.java
+C:\Users\david\Documents\NetBeansProjects\projectcc2\src\main\java\edu\co\udistrital\view\SubPanelTransformacion.java
 C:\Users\david\Documents\NetBeansProjects\projectcc2\src\main\java\edu\co\udistrital\view\VentanaPrincipal.java
 C:\Users\david\Documents\NetBeansProjects\projectcc2\src\main\java\edu\co\udistrital\view\Visualiza.java

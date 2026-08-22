@@ -12,13 +12,16 @@ edu\co\udistrital\view\ComponenteArregloTabla$1.class
 edu\co\udistrital\controller\BusquedaController.class
 edu\co\udistrital\view\PanelMatricesGrafos.class
 edu\co\udistrital\view\SubPanelSecuencial.class
+edu\co\udistrital\view\CuadroClave$1.class
 edu\co\udistrital\model\NodoTema.class
 edu\co\udistrital\model\ResultadoBusqueda.class
 edu\co\udistrital\controller\BusquedaSecuencial.class
 edu\co\udistrital\controller\BusquedaTransformacionClaves.class
 edu\co\udistrital\view\PanelFundamentosGrafos.class
+edu\co\udistrital\view\CuadroClave.class
 edu\co\udistrital\model\ArregloBusqueda.class
 edu\co\udistrital\view\PanelCircuitosEspeciales.class
+edu\co\udistrital\view\ComponenteArregloCuadros.class
 edu\co\udistrital\view\PanelBusquedaInterna.class
 edu\co\udistrital\view\PanelEstructurasAdyacencia.class
 edu\co\udistrital\model\ArbolTemasFactory.class

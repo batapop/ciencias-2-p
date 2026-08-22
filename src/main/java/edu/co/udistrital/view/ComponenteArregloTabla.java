@@ -8,7 +8,6 @@ package edu.co.udistrital.view;
  *
  * @author david
  */
-
 import edu.co.udistrital.model.PasoBusqueda;
 import edu.co.udistrital.model.ResultadoBusqueda;
 import edu.co.udistrital.model.Nodo;
@@ -22,6 +21,10 @@ public class ComponenteArregloTabla extends JPanel {
 
     private JSpinner spinnerTamano;
     private JButton btnCrear;
+    private JTextField campoNuevaClave;
+    private JButton btnAgregar;
+    private JButton btnEliminar;
+    private JButton btnLimpiar;
     private JTable tabla;
     private DefaultTableModel modeloTabla;
     private int posicionResaltada = -1;
@@ -30,17 +33,36 @@ public class ComponenteArregloTabla extends JPanel {
     public ComponenteArregloTabla() {
         setLayout(new BorderLayout(0, 10));
 
-        JPanel panelSuperior = new JPanel(new FlowLayout(FlowLayout.LEFT));
-        panelSuperior.add(new JLabel("Tamaño del arreglo (N):"));
+        // Fila superior: crear arreglo de tamaño N
+        JPanel panelCrear = new JPanel(new FlowLayout(FlowLayout.LEFT));
+        panelCrear.add(new JLabel("Tamaño del arreglo (N):"));
         spinnerTamano = new JSpinner(new SpinnerNumberModel(5, 1, 50, 1));
-        panelSuperior.add(spinnerTamano);
+        panelCrear.add(spinnerTamano);
         btnCrear = new JButton("Crear arreglo");
-        panelSuperior.add(btnCrear);
+        panelCrear.add(btnCrear);
+
+        // Fila de carga de datos: agregar una clave a la vez
+        JPanel panelCargar = new JPanel(new FlowLayout(FlowLayout.LEFT));
+        panelCargar.add(new JLabel("Nueva clave:"));
+        campoNuevaClave = new JTextField(6);
+        panelCargar.add(campoNuevaClave);
+        btnAgregar = new JButton("Agregar");
+        panelCargar.add(btnAgregar);
+        btnEliminar = new JButton("Eliminar seleccionado");
+        panelCargar.add(btnEliminar);
+        btnLimpiar = new JButton("Limpiar tabla");
+        panelCargar.add(btnLimpiar);
+
+        JPanel panelSuperior = new JPanel();
+        panelSuperior.setLayout(new BoxLayout(panelSuperior, BoxLayout.Y_AXIS));
+        panelSuperior.add(panelCrear);
+        panelSuperior.add(panelCargar);
         add(panelSuperior, BorderLayout.NORTH);
 
+        // Tabla ya NO editable directamente: solo refleja lo que el controller ordena pintar
         modeloTabla = new DefaultTableModel(new Object[]{"Índice", "Clave"}, 0) {
             @Override
-            public boolean isCellEditable(int row, int column) { return column == 1; }
+            public boolean isCellEditable(int row, int column) { return false; }
         };
         tabla = new JTable(modeloTabla);
         tabla.setRowHeight(24);
@@ -48,28 +70,35 @@ public class ComponenteArregloTabla extends JPanel {
         add(new JScrollPane(tabla), BorderLayout.CENTER);
     }
 
-    // El controller decide CUÁNDO crear, pero la vista expone el botón para que el subpanel lo conecte
+    // === Getters de controles para que el subpanel conecte los listeners ===
     public JButton getBotonCrear() { return btnCrear; }
+    public JButton getBotonAgregar() { return btnAgregar; }
+    public JButton getBotonEliminar() { return btnEliminar; }
+    public JButton getBotonLimpiar() { return btnLimpiar; }
+    public JTextField getCampoNuevaClave() { return campoNuevaClave; }
     public int getTamanoSeleccionado() { return (int) spinnerTamano.getValue(); }
+
+    // Índice de la fila seleccionada en la tabla, o -1 si no hay selección
+    public int getFilaSeleccionada() { return tabla.getSelectedRow(); }
 
     public void mostrarArregloVacio(int n) {
         modeloTabla.setRowCount(0);
-        for (int i = 0; i < n; i++) modeloTabla.addRow(new Object[]{i, 0});
+        for (int i = 0; i < n; i++) modeloTabla.addRow(new Object[]{i, ""});
         limpiarResaltado();
     }
 
-    // Entrega los valores tal cual el usuario los escribió, SIN parsear (eso es tarea del controller)
-    public String[] leerValoresCrudos() {
-        String[] valores = new String[modeloTabla.getRowCount()];
-        for (int i = 0; i < valores.length; i++) {
-            valores[i] = modeloTabla.getValueAt(i, 1).toString();
-        }
-        return valores;
+    // Pinta una sola celda (usado al agregar una clave)
+    public void pintarClaveEnPosicion(int posicion, int clave) {
+        modeloTabla.setValueAt(clave, posicion, 1);
     }
 
-    public void refrescarValores(Nodo[] elementos) {
+    public void limpiarCelda(int posicion) {
+        modeloTabla.setValueAt("", posicion, 1);
+    }
+
+    public void refrescarValores(Nodo[] elementos, int cantidadLlena) {
         for (int i = 0; i < elementos.length; i++) {
-            modeloTabla.setValueAt(elementos[i].getClave(), i, 1);
+            modeloTabla.setValueAt(i < cantidadLlena ? elementos[i].getClave() : "", i, 1);
         }
     }
 
@@ -102,7 +131,11 @@ public class ComponenteArregloTabla extends JPanel {
         public Component getTableCellRendererComponent(JTable table, Object value,
                 boolean isSelected, boolean hasFocus, int row, int column) {
             Component c = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
-            c.setBackground(row == posicionResaltada && colorResaltado != null ? colorResaltado : Color.WHITE);
+            if (row == posicionResaltada && colorResaltado != null) {
+                c.setBackground(colorResaltado);
+            } else {
+                c.setBackground(isSelected ? new Color(220, 230, 255) : Color.WHITE);
+            }
             return c;
         }
     }

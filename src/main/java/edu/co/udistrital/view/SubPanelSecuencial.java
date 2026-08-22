@@ -8,6 +8,7 @@ package edu.co.udistrital.view;
  *
  * @author david
  */
+
 import edu.co.udistrital.controller.BusquedaController;
 import edu.co.udistrital.controller.BusquedaSecuencial;
 
@@ -16,7 +17,7 @@ import java.awt.*;
 
 public class SubPanelSecuencial extends JPanel {
 
-    private ComponenteArregloTabla componenteTabla;
+    private ComponenteArregloCuadros componenteArreglo;
     private JTextField campoClaveBuscada;
     private JLabel labelResultado;
     private BusquedaController controller;
@@ -25,10 +26,10 @@ public class SubPanelSecuencial extends JPanel {
         setLayout(new BorderLayout(0, 10));
         setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 
-        componenteTabla = new ComponenteArregloTabla();
-        add(componenteTabla, BorderLayout.CENTER);
+        componenteArreglo = new ComponenteArregloCuadros();
+        add(componenteArreglo, BorderLayout.CENTER);
 
-        controller = new BusquedaController(componenteTabla, new BusquedaSecuencial());
+        controller = new BusquedaController(componenteArreglo, new BusquedaSecuencial());
 
         JPanel panelBusqueda = new JPanel(new FlowLayout(FlowLayout.LEFT));
         panelBusqueda.add(new JLabel("Clave a buscar:"));
@@ -41,8 +42,19 @@ public class SubPanelSecuencial extends JPanel {
         panelBusqueda.add(labelResultado);
         add(panelBusqueda, BorderLayout.SOUTH);
 
-        componenteTabla.getBotonCrear().addActionListener(e ->
-                controller.crearArreglo(componenteTabla.getTamanoSeleccionado()));
+        componenteArreglo.getBotonCrear().addActionListener(e ->
+                controller.crearArreglo(componenteArreglo.getTamanoSeleccionado()));
+
+        componenteArreglo.getBotonAgregar().addActionListener(e -> agregarClave());
+        componenteArreglo.getCampoNuevaClave().addActionListener(e -> agregarClave());
+
+        componenteArreglo.getBotonEliminar().addActionListener(e ->
+                controller.eliminarClave(componenteArreglo.getIndiceSeleccionado(), this));
+
+        componenteArreglo.getBotonLimpiar().addActionListener(e -> {
+            controller.limpiarArreglo();
+            labelResultado.setText(" ");
+        });
 
         btnBuscar.addActionListener(e -> {
             labelResultado.setText("Buscando...");
@@ -56,5 +68,11 @@ public class SubPanelSecuencial extends JPanel {
                 }
             });
         });
+    }
+
+    private void agregarClave() {
+        controller.agregarClave(componenteArreglo.getCampoNuevaClave().getText(), this);
+        componenteArreglo.getCampoNuevaClave().setText("");
+        componenteArreglo.getCampoNuevaClave().requestFocus();
     }
 }

@@ -13,11 +13,15 @@ import java.util.List;
 
 public class ResultadoBusqueda {
     private boolean encontrado;
-    private int posicionFinal; // -1 si no encontrado
+    private int posicionFinal;
     private List<PasoBusqueda> pasos = new ArrayList<>();
 
-    public void agregarPaso(int posicion, boolean coincide) {
-        pasos.add(new PasoBusqueda(posicion, coincide));
+    public void agregarPasoEvaluacion(int posicion, boolean coincide) {
+        pasos.add(PasoBusqueda.deEvaluacion(posicion, coincide));
+    }
+
+    public void agregarPasoRango(int inicio, int fin) {
+        pasos.add(PasoBusqueda.deRango(inicio, fin));
     }
 
     public void setEncontrado(boolean encontrado) { this.encontrado = encontrado; }

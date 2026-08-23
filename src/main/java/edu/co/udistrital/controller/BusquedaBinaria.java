@@ -10,19 +10,20 @@ package edu.co.udistrital.controller;
  */
 import edu.co.udistrital.model.Nodo;
 import edu.co.udistrital.model.ResultadoBusqueda;
-import java.util.Arrays;
-import java.util.Comparator;
 
 public class BusquedaBinaria implements AlgoritmoBusqueda {
     @Override
     public ResultadoBusqueda buscar(Nodo[] arreglo, int claveBuscada) {
-        Arrays.sort(arreglo, Comparator.comparingInt(Nodo::getClave)); // ordena in-place
         ResultadoBusqueda resultado = new ResultadoBusqueda();
         int inicio = 0, fin = arreglo.length - 1;
+
         while (inicio <= fin) {
+            resultado.agregarPasoRango(inicio, fin); // muestra el grupo activo antes de evaluar
+
             int medio = (inicio + fin) / 2;
             boolean coincide = arreglo[medio].getClave() == claveBuscada;
-            resultado.agregarPaso(medio, coincide);
+            resultado.agregarPasoEvaluacion(medio, coincide);
+
             if (coincide) {
                 resultado.setEncontrado(true);
                 resultado.setPosicionFinal(medio);

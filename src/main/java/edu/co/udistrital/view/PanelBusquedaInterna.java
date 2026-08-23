@@ -17,15 +17,15 @@ public class PanelBusquedaInterna extends JPanel implements Visualiza {
     public PanelBusquedaInterna() {
         setLayout(new BorderLayout());
 
-        JLabel titulo = new JLabel("1.1 Búsquedas internas y externas", SwingConstants.CENTER);
+        JLabel titulo = new JLabel("1.1 Búsquedas internas", SwingConstants.CENTER);
         titulo.setFont(new Font("SansSerif", Font.BOLD, 20));
         titulo.setBorder(BorderFactory.createEmptyBorder(10, 0, 10, 0));
         add(titulo, BorderLayout.NORTH);
 
         JTabbedPane pestañas = new JTabbedPane();
         pestañas.addTab("Búsqueda Secuencial", new SubPanelSecuencial());
-        /**pestañas.addTab("Búsqueda Binaria", new SubPanelBinaria());
-        pestañas.addTab("Transformación de Claves", new SubPanelTransformacion());*/
+        pestañas.addTab("Búsqueda Binaria", new SubPanelBinaria());
+        /**pestañas.addTab("Transformación de Claves", new SubPanelTransformacion());*/
 
         add(pestañas, BorderLayout.CENTER);
     }

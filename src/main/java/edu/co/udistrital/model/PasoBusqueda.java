@@ -9,13 +9,34 @@ package edu.co.udistrital.model;
  * @author david
  */
 public class PasoBusqueda {
-    private int posicionRevisada;
+
+    public enum Tipo { RANGO, EVALUACION }
+
+    private Tipo tipo;
+    private int inicio;
+    private int fin;
+    private int posicion;
     private boolean coincide;
 
-    public PasoBusqueda(int posicionRevisada, boolean coincide) {
-        this.posicionRevisada = posicionRevisada;
+    private PasoBusqueda(Tipo tipo, int inicio, int fin, int posicion, boolean coincide) {
+        this.tipo = tipo;
+        this.inicio = inicio;
+        this.fin = fin;
+        this.posicion = posicion;
         this.coincide = coincide;
     }
-    public int getPosicionRevisada() { return posicionRevisada; }
+
+    public static PasoBusqueda deRango(int inicio, int fin) {
+        return new PasoBusqueda(Tipo.RANGO, inicio, fin, -1, false);
+    }
+
+    public static PasoBusqueda deEvaluacion(int posicion, boolean coincide) {
+        return new PasoBusqueda(Tipo.EVALUACION, -1, -1, posicion, coincide);
+    }
+
+    public Tipo getTipo() { return tipo; }
+    public int getInicio() { return inicio; }
+    public int getFin() { return fin; }
+    public int getPosicion() { return posicion; }
     public boolean isCoincide() { return coincide; }
 }

@@ -20,7 +20,8 @@ public class BusquedaTransformacionClaves implements AlgoritmoBusqueda {
         int posicion = claveBuscada % arreglo.length;
 
         boolean coincide = arreglo[posicion].getClave() == claveBuscada;
-        resultado.agregarPaso(posicion, coincide);
+        int i = 0;
+        resultado.agregarPasoEvaluacion(i, coincide);
 
         if (coincide) {
             resultado.setEncontrado(true);

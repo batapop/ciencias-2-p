@@ -101,24 +101,37 @@ public class ComponenteArregloCuadros extends JPanel {
     }
 
     public void animarResultado(ResultadoBusqueda resultado, Runnable alTerminar) {
-        for (CuadroClave c : cuadros) c.setColorResaltado(null);
+    for (CuadroClave c : cuadros) c.setColorResaltado(null);
 
-        Timer timer = new Timer(600, null);
-        int[] indice = {0};
-        timer.addActionListener(e -> {
-            if (indice[0] < resultado.getPasos().size()) {
-                PasoBusqueda paso = resultado.getPasos().get(indice[0]);
-                int pos = paso.getPosicionRevisada();
+    Timer timer = new Timer(700, null);
+    int[] indice = {0};
+    timer.addActionListener(e -> {
+        if (indice[0] < resultado.getPasos().size()) {
+            aplicarPaso(resultado.getPasos().get(indice[0]));
+            indice[0]++;
+        } else {
+            timer.stop();
+            if (alTerminar != null) alTerminar.run();
+        }
+    });
+    timer.start();
+}
+
+        private void aplicarPaso(PasoBusqueda paso) {
+            if (paso.getTipo() == PasoBusqueda.Tipo.RANGO) {
+                for (int i = 0; i < cuadros.size(); i++) {
+                    if (i < paso.getInicio() || i > paso.getFin()) {
+                        cuadros.get(i).setColorResaltado(new Color(225, 225, 225)); // descartado: gris
+                    } else {
+                        cuadros.get(i).setColorResaltado(new Color(210, 230, 255)); // en consideración: celeste
+                    }
+                }
+            } else { // EVALUACION
+                int pos = paso.getPosicion();
                 if (pos >= 0 && pos < cuadros.size()) {
                     cuadros.get(pos).setColorResaltado(
-                            paso.isCoincide() ? new Color(144, 238, 144) : new Color(255, 200, 120));
+                            paso.isCoincide() ? new Color(144, 238, 144) : new Color(255, 180, 120));
                 }
-                indice[0]++;
-            } else {
-                timer.stop();
-                if (alTerminar != null) alTerminar.run();
             }
-        });
-        timer.start();
-    }
+        }
 }

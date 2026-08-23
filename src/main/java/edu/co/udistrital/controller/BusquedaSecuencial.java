@@ -17,7 +17,7 @@ public class BusquedaSecuencial implements AlgoritmoBusqueda {
         ResultadoBusqueda resultado = new ResultadoBusqueda();
         for (int i = 0; i < arreglo.length; i++) {
             boolean coincide = arreglo[i].getClave() == claveBuscada;
-            resultado.agregarPaso(i, coincide);
+            resultado.agregarPasoEvaluacion(i, coincide);
             if (coincide) {
                 resultado.setEncontrado(true);
                 resultado.setPosicionFinal(i);

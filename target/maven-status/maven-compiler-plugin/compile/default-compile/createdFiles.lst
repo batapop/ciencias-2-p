@@ -2,13 +2,11 @@ edu\co\udistrital\model\Nodo.class
 edu\co\udistrital\view\PanelColisionesHash.class
 edu\co\udistrital\view\PanelColoreo.class
 edu\co\udistrital\view\SubPanelBinaria.class
-edu\co\udistrital\view\ComponenteArregloTabla.class
 edu\co\udistrital\model\PasoBusqueda.class
-edu\co\udistrital\view\ComponenteArregloTabla$ResaltadorCeldas.class
 edu\co\udistrital\view\PanelRepresentacionMemoria.class
+edu\co\udistrital\model\PasoBusqueda$Tipo.class
 edu\co\udistrital\controller\AlgoritmoBusqueda.class
 edu\co\udistrital\view\PanelOtrasBusquedas.class
-edu\co\udistrital\view\ComponenteArregloTabla$1.class
 edu\co\udistrital\controller\BusquedaController.class
 edu\co\udistrital\view\PanelMatricesGrafos.class
 edu\co\udistrital\view\SubPanelSecuencial.class

@@ -25,7 +25,7 @@ public class PanelBusquedaInterna extends JPanel implements Visualiza {
         JTabbedPane pestañas = new JTabbedPane();
         pestañas.addTab("Búsqueda Secuencial", new SubPanelSecuencial());
         pestañas.addTab("Búsqueda Binaria", new SubPanelBinaria());
-        /**pestañas.addTab("Transformación de Claves", new SubPanelTransformacion());*/
+        pestañas.addTab("Transformación de Claves", new SubPanelTransformacion());
 
         add(pestañas, BorderLayout.CENTER);
     }

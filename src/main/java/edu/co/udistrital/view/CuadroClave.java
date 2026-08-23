@@ -8,6 +8,7 @@ package edu.co.udistrital.view;
  *
  * @author david
  */
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
@@ -17,21 +18,30 @@ public class CuadroClave extends JPanel {
 
     private boolean seleccionado = false;
     private Color colorResaltado = null;
+    private JLabel etiqueta;
 
     public CuadroClave(int clave, Runnable alHacerClic) {
+        this(String.valueOf(clave), alHacerClic);
+    }
+
+    public CuadroClave(String texto, Runnable alHacerClic) {
         setPreferredSize(new Dimension(60, 60));
         setLayout(new GridBagLayout());
         setBorder(BorderFactory.createLineBorder(new Color(120, 120, 120), 2));
         setBackground(Color.WHITE);
 
-        JLabel etiqueta = new JLabel(String.valueOf(clave));
-        etiqueta.setFont(new Font("SansSerif", Font.BOLD, 16));
+        etiqueta = new JLabel(texto);
+        etiqueta.setFont(new Font("SansSerif", Font.BOLD, 14));
         add(etiqueta);
 
         addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) { alHacerClic.run(); }
         });
+    }
+
+    public void marcarVacia() {
+        etiqueta.setForeground(new Color(180, 180, 180));
     }
 
     public void setSeleccionado(boolean seleccionado) {
